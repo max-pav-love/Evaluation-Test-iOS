@@ -9,21 +9,72 @@
 /* Begin PBXBuildFile section */
 		15BC8B9E2758D79B00D25C7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8B9D2758D79B00D25C7D /* AppDelegate.swift */; };
 		15BC8BA02758D79B00D25C7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8B9F2758D79B00D25C7D /* SceneDelegate.swift */; };
-		15BC8BA22758D79B00D25C7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BA12758D79B00D25C7D /* ViewController.swift */; };
 		15BC8BA52758D79B00D25C7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15BC8BA32758D79B00D25C7D /* Main.storyboard */; };
 		15BC8BA72758D79E00D25C7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15BC8BA62758D79E00D25C7D /* Assets.xcassets */; };
 		15BC8BAA2758D79E00D25C7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15BC8BA82758D79E00D25C7D /* LaunchScreen.storyboard */; };
+		15BC8BBB2758D8F800D25C7D /* AlbumsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BB52758D8F800D25C7D /* AlbumsListPresenter.swift */; };
+		15BC8BBC2758D8F800D25C7D /* AlbumsListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BB62758D8F800D25C7D /* AlbumsListWorker.swift */; };
+		15BC8BBD2758D8F800D25C7D /* AlbumsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BB72758D8F800D25C7D /* AlbumsListRouter.swift */; };
+		15BC8BBE2758D8F800D25C7D /* AlbumsListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BB82758D8F800D25C7D /* AlbumsListModels.swift */; };
+		15BC8BBF2758D8F800D25C7D /* AlbumsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BB92758D8F800D25C7D /* AlbumsListViewController.swift */; };
+		15BC8BC02758D8F800D25C7D /* AlbumsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BBA2758D8F800D25C7D /* AlbumsListInteractor.swift */; };
+		15BC8BC22758DA2300D25C7D /* AlbumsList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15BC8BC12758DA2300D25C7D /* AlbumsList.storyboard */; };
+		15BC8BC72758DB6F00D25C7D /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15BC8BC62758DB6F00D25C7D /* History.storyboard */; };
+		15BC8BCE2758DB8800D25C7D /* HistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BC82758DB8800D25C7D /* HistoryPresenter.swift */; };
+		15BC8BCF2758DB8900D25C7D /* HistoryWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BC92758DB8800D25C7D /* HistoryWorker.swift */; };
+		15BC8BD02758DB8900D25C7D /* HistoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BCA2758DB8800D25C7D /* HistoryRouter.swift */; };
+		15BC8BD12758DB8900D25C7D /* HistoryModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BCB2758DB8800D25C7D /* HistoryModels.swift */; };
+		15BC8BD22758DB8900D25C7D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BCC2758DB8800D25C7D /* HistoryViewController.swift */; };
+		15BC8BD32758DB8900D25C7D /* HistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BCD2758DB8800D25C7D /* HistoryInteractor.swift */; };
+		15BC8BDA2758DBCB00D25C7D /* AlbumDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BD42758DBCB00D25C7D /* AlbumDetailsPresenter.swift */; };
+		15BC8BDB2758DBCB00D25C7D /* AlbumDetailsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BD52758DBCB00D25C7D /* AlbumDetailsWorker.swift */; };
+		15BC8BDC2758DBCB00D25C7D /* AlbumDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BD62758DBCB00D25C7D /* AlbumDetailsRouter.swift */; };
+		15BC8BDD2758DBCB00D25C7D /* AlbumDetailsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BD72758DBCB00D25C7D /* AlbumDetailsModels.swift */; };
+		15BC8BDE2758DBCB00D25C7D /* AlbumDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BD82758DBCB00D25C7D /* AlbumDetailsViewController.swift */; };
+		15BC8BDF2758DBCB00D25C7D /* AlbumDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BD92758DBCB00D25C7D /* AlbumDetailsInteractor.swift */; };
+		15BC8BE12758DBDB00D25C7D /* AlbumDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15BC8BE02758DBDB00D25C7D /* AlbumDetails.storyboard */; };
+		15BC8BE62758E0DE00D25C7D /* AlbumsListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BE52758E0DE00D25C7D /* AlbumsListCollectionViewCell.swift */; };
+		15BC8BE92758F38000D25C7D /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BE82758F38000D25C7D /* HistoryTableViewCell.swift */; };
+		15BC8BED2758F89900D25C7D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BEC2758F89900D25C7D /* NetworkManager.swift */; };
+		15BC8BF02758FC1700D25C7D /* iTunesAlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BEF2758FC1700D25C7D /* iTunesAlbumModel.swift */; };
+		15BC8BF327590F2C00D25C7D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 15BC8BF227590F2C00D25C7D /* Kingfisher */; };
+		15BC8BF62759579F00D25C7D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BC8BF52759579E00D25C7D /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		15BC8B9A2758D79B00D25C7D /* Evaluation Test iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Evaluation Test iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		15BC8B9D2758D79B00D25C7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15BC8B9F2758D79B00D25C7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		15BC8BA12758D79B00D25C7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		15BC8BA42758D79B00D25C7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		15BC8BA62758D79E00D25C7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15BC8BA92758D79E00D25C7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15BC8BAB2758D79E00D25C7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15BC8BB52758D8F800D25C7D /* AlbumsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsListPresenter.swift; sourceTree = "<group>"; };
+		15BC8BB62758D8F800D25C7D /* AlbumsListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsListWorker.swift; sourceTree = "<group>"; };
+		15BC8BB72758D8F800D25C7D /* AlbumsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsListRouter.swift; sourceTree = "<group>"; };
+		15BC8BB82758D8F800D25C7D /* AlbumsListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsListModels.swift; sourceTree = "<group>"; };
+		15BC8BB92758D8F800D25C7D /* AlbumsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsListViewController.swift; sourceTree = "<group>"; };
+		15BC8BBA2758D8F800D25C7D /* AlbumsListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsListInteractor.swift; sourceTree = "<group>"; };
+		15BC8BC12758DA2300D25C7D /* AlbumsList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlbumsList.storyboard; sourceTree = "<group>"; };
+		15BC8BC62758DB6F00D25C7D /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
+		15BC8BC82758DB8800D25C7D /* HistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPresenter.swift; sourceTree = "<group>"; };
+		15BC8BC92758DB8800D25C7D /* HistoryWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryWorker.swift; sourceTree = "<group>"; };
+		15BC8BCA2758DB8800D25C7D /* HistoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRouter.swift; sourceTree = "<group>"; };
+		15BC8BCB2758DB8800D25C7D /* HistoryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModels.swift; sourceTree = "<group>"; };
+		15BC8BCC2758DB8800D25C7D /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		15BC8BCD2758DB8800D25C7D /* HistoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInteractor.swift; sourceTree = "<group>"; };
+		15BC8BD42758DBCB00D25C7D /* AlbumDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsPresenter.swift; sourceTree = "<group>"; };
+		15BC8BD52758DBCB00D25C7D /* AlbumDetailsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsWorker.swift; sourceTree = "<group>"; };
+		15BC8BD62758DBCB00D25C7D /* AlbumDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsRouter.swift; sourceTree = "<group>"; };
+		15BC8BD72758DBCB00D25C7D /* AlbumDetailsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsModels.swift; sourceTree = "<group>"; };
+		15BC8BD82758DBCB00D25C7D /* AlbumDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsViewController.swift; sourceTree = "<group>"; };
+		15BC8BD92758DBCB00D25C7D /* AlbumDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsInteractor.swift; sourceTree = "<group>"; };
+		15BC8BE02758DBDB00D25C7D /* AlbumDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlbumDetails.storyboard; sourceTree = "<group>"; };
+		15BC8BE52758E0DE00D25C7D /* AlbumsListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsListCollectionViewCell.swift; sourceTree = "<group>"; };
+		15BC8BE82758F38000D25C7D /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		15BC8BEC2758F89900D25C7D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		15BC8BEF2758FC1700D25C7D /* iTunesAlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesAlbumModel.swift; sourceTree = "<group>"; };
+		15BC8BF52759579E00D25C7D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15BC8BF327590F2C00D25C7D /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +108,136 @@
 		15BC8B9C2758D79B00D25C7D /* Evaluation Test iOS */ = {
 			isa = PBXGroup;
 			children = (
-				15BC8B9D2758D79B00D25C7D /* AppDelegate.swift */,
-				15BC8B9F2758D79B00D25C7D /* SceneDelegate.swift */,
-				15BC8BA12758D79B00D25C7D /* ViewController.swift */,
-				15BC8BA32758D79B00D25C7D /* Main.storyboard */,
-				15BC8BA62758D79E00D25C7D /* Assets.xcassets */,
-				15BC8BA82758D79E00D25C7D /* LaunchScreen.storyboard */,
+				15BC8BF42759578A00D25C7D /* Constants */,
+				15BC8BEE2758FBFF00D25C7D /* Models */,
+				15BC8BEA2758F79C00D25C7D /* Services */,
+				15BC8BB42758D7F400D25C7D /* AlbumsList */,
+				15BC8BC42758DB2900D25C7D /* AlbumDetails */,
+				15BC8BC52758DB3B00D25C7D /* History */,
+				15BC8BB32758D7DE00D25C7D /* Delegates */,
+				15BC8BB22758D7C100D25C7D /* MainStoryboards */,
+				15BC8BB12758D7AF00D25C7D /* Resources */,
 				15BC8BAB2758D79E00D25C7D /* Info.plist */,
 			);
 			path = "Evaluation Test iOS";
+			sourceTree = "<group>";
+		};
+		15BC8BB12758D7AF00D25C7D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				15BC8BA62758D79E00D25C7D /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		15BC8BB22758D7C100D25C7D /* MainStoryboards */ = {
+			isa = PBXGroup;
+			children = (
+				15BC8BA32758D79B00D25C7D /* Main.storyboard */,
+				15BC8BA82758D79E00D25C7D /* LaunchScreen.storyboard */,
+			);
+			path = MainStoryboards;
+			sourceTree = "<group>";
+		};
+		15BC8BB32758D7DE00D25C7D /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				15BC8B9D2758D79B00D25C7D /* AppDelegate.swift */,
+				15BC8B9F2758D79B00D25C7D /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		15BC8BB42758D7F400D25C7D /* AlbumsList */ = {
+			isa = PBXGroup;
+			children = (
+				15BC8BE22758E08D00D25C7D /* Cells */,
+				15BC8BB92758D8F800D25C7D /* AlbumsListViewController.swift */,
+				15BC8BBA2758D8F800D25C7D /* AlbumsListInteractor.swift */,
+				15BC8BB52758D8F800D25C7D /* AlbumsListPresenter.swift */,
+				15BC8BB62758D8F800D25C7D /* AlbumsListWorker.swift */,
+				15BC8BB72758D8F800D25C7D /* AlbumsListRouter.swift */,
+				15BC8BB82758D8F800D25C7D /* AlbumsListModels.swift */,
+				15BC8BC12758DA2300D25C7D /* AlbumsList.storyboard */,
+			);
+			path = AlbumsList;
+			sourceTree = "<group>";
+		};
+		15BC8BC42758DB2900D25C7D /* AlbumDetails */ = {
+			isa = PBXGroup;
+			children = (
+				15BC8BD82758DBCB00D25C7D /* AlbumDetailsViewController.swift */,
+				15BC8BD42758DBCB00D25C7D /* AlbumDetailsPresenter.swift */,
+				15BC8BD52758DBCB00D25C7D /* AlbumDetailsWorker.swift */,
+				15BC8BD62758DBCB00D25C7D /* AlbumDetailsRouter.swift */,
+				15BC8BD72758DBCB00D25C7D /* AlbumDetailsModels.swift */,
+				15BC8BD92758DBCB00D25C7D /* AlbumDetailsInteractor.swift */,
+				15BC8BE02758DBDB00D25C7D /* AlbumDetails.storyboard */,
+			);
+			path = AlbumDetails;
+			sourceTree = "<group>";
+		};
+		15BC8BC52758DB3B00D25C7D /* History */ = {
+			isa = PBXGroup;
+			children = (
+				15BC8BE72758F35500D25C7D /* Cells */,
+				15BC8BCC2758DB8800D25C7D /* HistoryViewController.swift */,
+				15BC8BCD2758DB8800D25C7D /* HistoryInteractor.swift */,
+				15BC8BC82758DB8800D25C7D /* HistoryPresenter.swift */,
+				15BC8BCB2758DB8800D25C7D /* HistoryModels.swift */,
+				15BC8BC92758DB8800D25C7D /* HistoryWorker.swift */,
+				15BC8BCA2758DB8800D25C7D /* HistoryRouter.swift */,
+				15BC8BC62758DB6F00D25C7D /* History.storyboard */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		15BC8BE22758E08D00D25C7D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				15BC8BE52758E0DE00D25C7D /* AlbumsListCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		15BC8BE72758F35500D25C7D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				15BC8BE82758F38000D25C7D /* HistoryTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		15BC8BEA2758F79C00D25C7D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				15BC8BEB2758F7A400D25C7D /* NetworkManager */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		15BC8BEB2758F7A400D25C7D /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				15BC8BEC2758F89900D25C7D /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		15BC8BEE2758FBFF00D25C7D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				15BC8BEF2758FC1700D25C7D /* iTunesAlbumModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		15BC8BF42759578A00D25C7D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				15BC8BF52759579E00D25C7D /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +256,9 @@
 			dependencies = (
 			);
 			name = "Evaluation Test iOS";
+			packageProductDependencies = (
+				15BC8BF227590F2C00D25C7D /* Kingfisher */,
+			);
 			productName = "Evaluation Test iOS";
 			productReference = 15BC8B9A2758D79B00D25C7D /* Evaluation Test iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +287,9 @@
 				Base,
 			);
 			mainGroup = 15BC8B912758D79B00D25C7D;
+			packageReferences = (
+				15BC8BF127590F2C00D25C7D /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 15BC8B9B2758D79B00D25C7D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,9 +304,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15BC8BC22758DA2300D25C7D /* AlbumsList.storyboard in Resources */,
 				15BC8BAA2758D79E00D25C7D /* LaunchScreen.storyboard in Resources */,
 				15BC8BA72758D79E00D25C7D /* Assets.xcassets in Resources */,
+				15BC8BC72758DB6F00D25C7D /* History.storyboard in Resources */,
 				15BC8BA52758D79B00D25C7D /* Main.storyboard in Resources */,
+				15BC8BE12758DBDB00D25C7D /* AlbumDetails.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +320,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15BC8BA22758D79B00D25C7D /* ViewController.swift in Sources */,
+				15BC8BF62759579F00D25C7D /* Constants.swift in Sources */,
+				15BC8BED2758F89900D25C7D /* NetworkManager.swift in Sources */,
+				15BC8BD12758DB8900D25C7D /* HistoryModels.swift in Sources */,
+				15BC8BCF2758DB8900D25C7D /* HistoryWorker.swift in Sources */,
+				15BC8BC02758D8F800D25C7D /* AlbumsListInteractor.swift in Sources */,
+				15BC8BCE2758DB8800D25C7D /* HistoryPresenter.swift in Sources */,
+				15BC8BDB2758DBCB00D25C7D /* AlbumDetailsWorker.swift in Sources */,
+				15BC8BDF2758DBCB00D25C7D /* AlbumDetailsInteractor.swift in Sources */,
+				15BC8BF02758FC1700D25C7D /* iTunesAlbumModel.swift in Sources */,
+				15BC8BDE2758DBCB00D25C7D /* AlbumDetailsViewController.swift in Sources */,
+				15BC8BD22758DB8900D25C7D /* HistoryViewController.swift in Sources */,
+				15BC8BE92758F38000D25C7D /* HistoryTableViewCell.swift in Sources */,
+				15BC8BE62758E0DE00D25C7D /* AlbumsListCollectionViewCell.swift in Sources */,
+				15BC8BBF2758D8F800D25C7D /* AlbumsListViewController.swift in Sources */,
+				15BC8BBD2758D8F800D25C7D /* AlbumsListRouter.swift in Sources */,
+				15BC8BDD2758DBCB00D25C7D /* AlbumDetailsModels.swift in Sources */,
+				15BC8BBE2758D8F800D25C7D /* AlbumsListModels.swift in Sources */,
+				15BC8BDC2758DBCB00D25C7D /* AlbumDetailsRouter.swift in Sources */,
+				15BC8BBB2758D8F800D25C7D /* AlbumsListPresenter.swift in Sources */,
+				15BC8BD32758DB8900D25C7D /* HistoryInteractor.swift in Sources */,
 				15BC8B9E2758D79B00D25C7D /* AppDelegate.swift in Sources */,
 				15BC8BA02758D79B00D25C7D /* SceneDelegate.swift in Sources */,
+				15BC8BBC2758D8F800D25C7D /* AlbumsListWorker.swift in Sources */,
+				15BC8BD02758DB8900D25C7D /* HistoryRouter.swift in Sources */,
+				15BC8BDA2758DBCB00D25C7D /* AlbumDetailsPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +564,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		15BC8BF127590F2C00D25C7D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		15BC8BF227590F2C00D25C7D /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15BC8BF127590F2C00D25C7D /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 15BC8B922758D79B00D25C7D /* Project object */;
 }

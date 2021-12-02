@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GD4-pK-8Ir">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="abb-qo-KwI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GD4-pK-8Ir" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="history" id="fMz-Eg-bQR"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="KuU-8A-CaV">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5V9-TS-Ql8" kind="relationship" relationship="rootViewController" id="HBl-gR-ctF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d1Z-r1-Veg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="128.57142857142856"/>
+        </scene>
+        <!--Your history-->
+        <scene sceneID="7vk-UA-5fc">
+            <objects>
+                <tableViewController id="5V9-TS-Ql8" customClass="HistoryViewController" customModule="Evaluation_Test_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="pdS-nX-C8V">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="historyCell" textLabel="Cgg-gn-STH" imageView="yor-HD-y0M" rowHeight="60" style="IBUITableViewCellStyleDefault" id="83O-Q4-vkc" customClass="HistoryTableViewCell" customModule="Evaluation_Test_iOS" customModuleProvider="target">
+                                <rect key="frame" x="20" y="32" width="374" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="83O-Q4-vkc" id="R8K-C4-LC1">
+                                    <rect key="frame" x="0.0" y="0.0" width="344.5" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="The weekend" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cgg-gn-STH">
+                                            <rect key="frame" x="55.5" y="0.0" width="281" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yor-HD-y0M">
+                                            <rect key="frame" x="22" y="22" width="16.5" height="15.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <imageReference key="image" image="dot.circle" catalog="system" symbolScale="small"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5V9-TS-Ql8" id="JNn-6F-Wol"/>
+                            <outlet property="delegate" destination="5V9-TS-Ql8" id="XUe-Fd-h4F"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Your history" id="W17-k3-tgd"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hIp-YU-esX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="901" y="129"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="dot.circle" catalog="system" width="128" height="121"/>
+    </resources>
+</document>
