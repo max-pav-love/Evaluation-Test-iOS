@@ -1,22 +1,22 @@
 //
-//  AlbumsListModels.swift
+//  AlbumDetailsModels.swift
 //  Evaluation Test iOS
 //
 //  Created by Максим Хлесткин on 02.12.2021.
-//
+//  Copyright (c) 2021 ___ORGANIZATIONNAME___. All rights reserved.
 
 import UIKit
 
-enum AlbumsList {
-    enum Albums {
+enum AlbumDetails {
+    enum Album {
         struct Request {
-            var album: String
         }
         struct Response {
-            var albums: [AlbumResults]
+            var album: AlbumResults
+            var tracks: [TracksResult]
         }
         struct ViewModel {
-            struct DisplayedAlbums {
+            struct DisplayedAlbum {
                 let artistName: String
                 let albumName: String
                 let artworkUrl: URL?
@@ -26,7 +26,11 @@ enum AlbumsList {
                 let releaseDate: String
                 let genre: String
             }
-            var displayedAlbums: [DisplayedAlbums]
+            struct DisplayedTrack {
+                let trackName: String
+            }
+            var displayedAlbum: DisplayedAlbum
+            var dispalayedTracks: [DisplayedTrack]
         }
     }
 }

@@ -8,10 +8,10 @@
 import Foundation
 
 struct Albums: Decodable {
-    let results: [AlbumsResults]
+    let results: [AlbumResults]
 }
 
-struct AlbumsResults: Decodable {
+struct AlbumResults: Decodable {
     let artistName: String
     let collectionName: String
     let artworkUrl100: URL?
@@ -20,4 +20,5 @@ struct AlbumsResults: Decodable {
     let country: String
     let releaseDate: String
     let primaryGenreName: String
+    let collectionId: Int
 }

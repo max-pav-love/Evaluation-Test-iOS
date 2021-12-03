@@ -9,7 +9,7 @@ import UIKit
 
 class AlbumsListWorker {
     
-    func getDisplayedNews(from albums: [AlbumsResults]) -> [AlbumsList
+    func prepareDisplayedAlbums(from albums: [AlbumResults]) -> [AlbumsList
                                                                 .Albums
                                                                 .ViewModel
                                                                 .DisplayedAlbums] {
@@ -17,15 +17,15 @@ class AlbumsListWorker {
                                 .Albums
                                 .ViewModel
                                 .DisplayedAlbums]()
-        albums.forEach { albums in
-            let artistName = albums.artistName
-            let albumName = albums.collectionName
-            let artworkUrl = albums.artworkUrl100
-            let numberOfTracks = albums.trackCount
-            let country = albums.country
-            let copyright = albums.copyright
-            let releaseDate = albums.releaseDate
-            let genre = albums.primaryGenreName
+        albums.forEach { album in
+            let artistName = album.artistName
+            let albumName = album.collectionName
+            let artworkUrl = album.artworkUrl100
+            let numberOfTracks = album.trackCount
+            let country = album.country
+            let copyright = album.copyright
+            let releaseDate = album.releaseDate
+            let genre = album.primaryGenreName
             
             let album = AlbumsList
                 .Albums

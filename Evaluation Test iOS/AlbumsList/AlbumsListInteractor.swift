@@ -12,24 +12,25 @@ protocol AlbumsListBusinessLogic {
 }
 
 protocol AlbumsListDataStore {
-    var albumsResults: [AlbumsResults] { get }
+    var albumsResults: [AlbumResults] { get }
 }
 
 class AlbumsListInteractor: AlbumsListBusinessLogic, AlbumsListDataStore {
     
-    var albumsResults: [AlbumsResults] = []
+    var albumsResults: [AlbumResults] = []
     
     var presenter: AlbumsListPresentationLogic?
     var worker: AlbumsListWorker?
     private let networkManager = NetworkManager()
     
-    // MARK: - DataStore
-    
     // MARK: - Business Logic
     
     func fetchAlbums(request: AlbumsList.Albums.Request) {
         networkManager.fetchAlbumsData(for: request.album) { [weak self] albums in
-            self?.albumsResults = albums?.results ?? []
+            guard let albums = albums else {
+                return
+            }
+            self?.albumsResults = albums.results
             let response = AlbumsList.Albums.Response(albums: self?.albumsResults ?? [])
             self?.presenter?.presentAlbums(response: response)
         }

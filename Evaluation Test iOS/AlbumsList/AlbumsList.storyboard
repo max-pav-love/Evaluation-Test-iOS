@@ -28,142 +28,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="K7I-wp-dx4" kind="relationship" relationship="rootViewController" id="Y4S-Jd-34b"/>
+                        <segue destination="K7I-wp-dx4" kind="relationship" relationship="rootViewController" id="SAD-bk-dkT"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9d6-aL-vmm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="897" y="124"/>
-        </scene>
-        <!--iTunes Albums-->
-        <scene sceneID="zxE-mD-mH2">
-            <objects>
-                <viewController id="XHq-cU-aOi" customClass="AlbumsListViewController" customModule="Evaluation_Test_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="a7X-Gg-IOg">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search albums" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rx0-jF-Ino">
-                                <rect key="frame" x="0.0" y="52" width="428" height="51"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="XHq-cU-aOi" id="wxt-iH-pXd"/>
-                                </connections>
-                            </searchBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ndo-K0-vHs">
-                                <rect key="frame" x="0.0" y="103" width="428" height="789"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XkX-RS-Gdf">
-                                    <size key="itemSize" width="432" height="540"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" reuseIdentifier="AlbumCell" id="cbq-da-1K3" customClass="AlbumsListCollectionViewCell" customModule="Evaluation_Test_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="124.66666666666667" width="432" height="540"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cnX-36-xHk">
-                                            <rect key="frame" x="0.0" y="0.0" width="432" height="540"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Weekend" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2d-qy-xX5">
-                                                    <rect key="frame" x="32" y="32" width="368" height="37"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="JWL-5y-Nfu">
-                                                    <rect key="frame" x="16" y="389" width="400" height="143"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist: The Weekend" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85S-XN-2zN">
-                                                            <rect key="frame" x="0.0" y="51.333333333333314" width="250" height="40.666666666666657"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="250" id="3Vl-cO-alT"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cwa-QU-mVa">
-                                                            <rect key="frame" x="250" y="56" width="150" height="31"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="31" id="I05-jU-ahH"/>
-                                                                <constraint firstAttribute="width" constant="150" id="XSK-k5-m2K"/>
-                                                            </constraints>
-                                                            <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="tinted" title="Show more"/>
-                                                        </button>
-                                                    </subviews>
-                                                </stackView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music.note" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7CS-Me-UNJ">
-                                                    <rect key="frame" x="76" y="78" width="280" height="278.66666666666669"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="280" id="a3Z-ba-FI2"/>
-                                                        <constraint firstAttribute="width" constant="280" id="z7V-40-tN2"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="E2d-qy-xX5" firstAttribute="leading" secondItem="cnX-36-xHk" secondAttribute="leading" constant="32" id="2p6-Q7-6e1"/>
-                                                <constraint firstItem="JWL-5y-Nfu" firstAttribute="leading" secondItem="cnX-36-xHk" secondAttribute="leading" constant="16" id="5dl-Fq-009"/>
-                                                <constraint firstAttribute="trailing" secondItem="JWL-5y-Nfu" secondAttribute="trailing" constant="16" id="FfN-2j-5zD"/>
-                                                <constraint firstAttribute="trailing" secondItem="7CS-Me-UNJ" secondAttribute="trailing" constant="76" id="a6i-J6-fuW"/>
-                                                <constraint firstItem="7CS-Me-UNJ" firstAttribute="leading" secondItem="cnX-36-xHk" secondAttribute="leading" constant="76" id="caz-ES-b3z"/>
-                                                <constraint firstItem="E2d-qy-xX5" firstAttribute="top" secondItem="cnX-36-xHk" secondAttribute="top" constant="32" id="l2m-Wi-7QS"/>
-                                                <constraint firstAttribute="bottom" secondItem="JWL-5y-Nfu" secondAttribute="bottom" constant="8" id="m48-TZ-GaS"/>
-                                                <constraint firstItem="JWL-5y-Nfu" firstAttribute="top" secondItem="7CS-Me-UNJ" secondAttribute="bottom" constant="32.000000000000057" id="rco-xQ-DXV"/>
-                                                <constraint firstItem="7CS-Me-UNJ" firstAttribute="top" secondItem="E2d-qy-xX5" secondAttribute="bottom" constant="8" id="t7C-PZ-hVT"/>
-                                                <constraint firstAttribute="trailing" secondItem="E2d-qy-xX5" secondAttribute="trailing" constant="32" id="zAH-ZM-TMm"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="432" height="540"/>
-                                        <connections>
-                                            <outlet property="albumArtistLabel" destination="85S-XN-2zN" id="tVD-MJ-wpb"/>
-                                            <outlet property="albumImage" destination="7CS-Me-UNJ" id="kAu-o4-94v"/>
-                                            <outlet property="albumTitleLabel" destination="E2d-qy-xX5" id="zH8-dd-w1d"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="XHq-cU-aOi" id="f4y-wb-XP1"/>
-                                    <outlet property="delegate" destination="XHq-cU-aOi" id="UEf-QT-4IK"/>
-                                </connections>
-                            </collectionView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="WxF-Nd-O8u"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Ndo-K0-vHs" firstAttribute="leading" secondItem="WxF-Nd-O8u" secondAttribute="leading" id="2kR-4Y-xKd"/>
-                            <constraint firstItem="WxF-Nd-O8u" firstAttribute="bottom" secondItem="Ndo-K0-vHs" secondAttribute="bottom" id="6K0-Jc-LuI"/>
-                            <constraint firstItem="rx0-jF-Ino" firstAttribute="trailing" secondItem="WxF-Nd-O8u" secondAttribute="trailing" id="NLc-pq-zQu"/>
-                            <constraint firstItem="Ndo-K0-vHs" firstAttribute="top" secondItem="rx0-jF-Ino" secondAttribute="bottom" id="NMo-Bt-qmK"/>
-                            <constraint firstItem="rx0-jF-Ino" firstAttribute="leading" secondItem="WxF-Nd-O8u" secondAttribute="leading" id="PSc-5M-To8"/>
-                            <constraint firstItem="Ndo-K0-vHs" firstAttribute="top" secondItem="rx0-jF-Ino" secondAttribute="bottom" id="PVh-eg-h2p"/>
-                            <constraint firstItem="rx0-jF-Ino" firstAttribute="top" secondItem="WxF-Nd-O8u" secondAttribute="top" constant="8" id="SBd-EU-tlE"/>
-                            <constraint firstItem="WxF-Nd-O8u" firstAttribute="trailing" secondItem="Ndo-K0-vHs" secondAttribute="trailing" id="nSr-8O-vhW"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="iTunes Albums" id="evO-zR-0D7"/>
-                    <connections>
-                        <outlet property="collection" destination="Ndo-K0-vHs" id="3Yo-qm-eXB"/>
-                        <outlet property="searchBar" destination="rx0-jF-Ino" id="R8O-Sp-IgA"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ETE-Ho-vBc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1779" y="124"/>
-        </scene>
-        <!--AlbumDetails-->
-        <scene sceneID="GZU-8d-P8D">
-            <objects>
-                <viewControllerPlaceholder storyboardName="AlbumDetails" id="qG9-7L-38j" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="LfO-Hv-vhY"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KdW-8E-80l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2551" y="69"/>
         </scene>
         <!--iTunes Albums-->
         <scene sceneID="MZm-d3-jej">
@@ -174,7 +44,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search albums" translatesAutoresizingMaskIntoConstraints="NO" id="n2Z-9f-tDP">
-                                <rect key="frame" x="0.0" y="148" width="428" height="51"/>
+                                <rect key="frame" x="0.0" y="96" width="428" height="51"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
@@ -182,7 +52,7 @@
                                 </connections>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nWE-La-dRE">
-                                <rect key="frame" x="0.0" y="199" width="428" height="644"/>
+                                <rect key="frame" x="0.0" y="147" width="428" height="696"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ENk-z9-LZt">
                                     <size key="itemSize" width="128" height="128"/>
@@ -257,7 +127,7 @@
                                                 <constraint firstItem="gP8-h1-wYB" firstAttribute="top" secondItem="3xQ-Km-5bn" secondAttribute="top" id="wxp-2P-fPK"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" red="0.92054580979877043" green="0.92054580979877043" blue="0.92054580979877043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <size key="customSize" width="200" height="260"/>
                                         <connections>
                                             <outlet property="albumArtist" destination="w0r-Lr-LYi" id="4tC-2N-cVz"/>
@@ -287,6 +157,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="iTunes Albums" id="TBi-Gl-HEU"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="collection" destination="nWE-La-dRE" id="Kck-Ky-tWO"/>
                         <outlet property="searchBar" destination="n2Z-9f-tDP" id="90M-E4-1Ke"/>
@@ -294,15 +165,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="db2-rN-935" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3026.6355140186915" y="123.75809935205184"/>
+            <point key="canvasLocation" x="1939" y="124"/>
         </scene>
     </scenes>
     <resources>
-        <image name="music.note" catalog="system" width="97" height="128"/>
         <image name="music.note.list" catalog="system" width="128" height="115"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

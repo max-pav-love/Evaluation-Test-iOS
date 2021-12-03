@@ -8,7 +8,7 @@
 import UIKit
 
 @objc protocol AlbumsListRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToAlbumDetails()
 }
 
 protocol AlbumsListDataPassing {
@@ -19,33 +19,33 @@ class AlbumsListRouter: NSObject, AlbumsListRoutingLogic, AlbumsListDataPassing 
     
     weak var viewController: AlbumsListViewController?
     var dataStore: AlbumsListDataStore?
+    //    private static let detailSegue = "showAlbumDetails"
     
     // MARK: - Routing Logic
     
-//    func routeToSomewhere(segue: UIStoryboardSegue?) {
-//        if let segue = segue {
-//            let destinationVC = segue.destination as! SomewhereViewController
-//            var destinationDS = destinationVC.router!.dataStore!
-//            passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-//        } else {
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-//            var destinationDS = destinationVC.router!.dataStore!
-//            passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-//            navigateToSomewhere(source: viewController!, destination: destinationVC)
-//        }
-//    }
+    func routeToAlbumDetails() {
+        let storyboard = UIStoryboard(name: "AlbumDetails", bundle: nil)
+        guard
+            let destinationVC = storyboard.instantiateViewController(withIdentifier: "AlbumDetailsStoryboard") as? AlbumDetailsViewController,
+            var destinationDS = destinationVC.router?.dataStore,
+            let dataStore = dataStore else {
+                return
+            }
+        passDataToAlbumDetails(source: dataStore, destination: &destinationDS)
+        navigateToAlbumDetails(destination: destinationVC)
+    }
     
-    // MARK: - Navigation
-    
-//    func navigateToSomewhere(source: AlbumsListViewController, destination: SomewhereViewController) {
-//        source.show(destination, sender: nil)
-//    }
+    func navigateToAlbumDetails(destination: AlbumDetailsViewController) {
+//        viewController?.navigationController?.pushViewController(destination, animated: true)
+        viewController?.present(destination, animated: true)
+//        viewController?.navigationController?.present(destination, animated: true)
+    }
     
     // MARK: - Passing data
     
-//    func passDataToSomewhere(source: AlbumsListDataStore, destination: inout SomewhereDataStore) {
-//        destination.name = source.name
-//    }
+    func passDataToAlbumDetails(source: AlbumsListDataStore, destination: inout AlbumDetailsDataStore) {
+        guard let indexPath = viewController?.collection?.indexPathsForSelectedItems?.first else { return }
+        destination.album = source.albumsResults[indexPath.item]
+    }
     
 }

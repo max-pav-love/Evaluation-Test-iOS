@@ -20,7 +20,7 @@ class AlbumsListPresenter: AlbumsListPresentationLogic {
     
     func presentAlbums(response: AlbumsList.Albums.Response) {
         worker = AlbumsListWorker()
-        guard let displayedAlbums = worker?.getDisplayedNews(from: response.albums) else {
+        guard let displayedAlbums = worker?.prepareDisplayedAlbums(from: response.albums) else {
             return
         }
         let viewModel = AlbumsList.Albums.ViewModel(displayedAlbums: displayedAlbums)
