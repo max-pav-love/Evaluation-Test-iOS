@@ -21,12 +21,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sci-e0-5Mn">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ccg-Xz-6GQ">
-                                        <rect key="frame" x="189" y="403" width="37" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ccg-Xz-6GQ">
+                                        <rect key="frame" x="197" y="438" width="20" height="20"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstItem="ccg-Xz-6GQ" firstAttribute="centerX" secondItem="Sci-e0-5Mn" secondAttribute="centerX" id="ABU-2I-e0d"/>
+                                    <constraint firstItem="ccg-Xz-6GQ" firstAttribute="centerY" secondItem="Sci-e0-5Mn" secondAttribute="centerY" id="Qfb-TR-BiQ"/>
+                                </constraints>
                             </view>
                             <navigationBar hidden="YES" contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DPT-nP-iNp">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
