@@ -28,6 +28,14 @@ class AlbumDetailsViewController: UIViewController, AlbumDetailsDisplayLogic {
     @IBOutlet weak var albumYearLabel: UILabel!
     @IBOutlet weak var albumGenreLabel: UILabel!
     @IBOutlet weak var albumCover: UIImageView!
+    @IBOutlet weak var copyrightLabel: UILabel!
+    @IBOutlet weak var navBarTitle: UINavigationItem!
+    @IBOutlet private var loader: UIActivityIndicatorView?
+    @IBOutlet private weak var loaderView: UIView?
+    
+    @IBOutlet weak var navBar: UINavigationBar!
+    
+    @IBOutlet weak var countryLabel: UILabel!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -82,15 +90,36 @@ class AlbumDetailsViewController: UIViewController, AlbumDetailsDisplayLogic {
     func displayAlbumDetails(viewModel: AlbumDetails.Album.ViewModel) {
         tracks = viewModel.dispalayedTracks
         DispatchQueue.main.async {
-            self.navigationItem.title = viewModel.displayedAlbum.albumName
+            self.navBarTitle.title = viewModel.displayedAlbum.albumName
             self.artistNameLabel.text = viewModel.displayedAlbum.artistName
-            self.albumYearLabel.text = viewModel.displayedAlbum.releaseDate
-            self.albumGenreLabel.text = viewModel.displayedAlbum.genre
+            self.albumYearLabel.text = "Year: " +  viewModel.displayedAlbum.releaseDate
+            self.albumGenreLabel.text = "Genre: " +  viewModel.displayedAlbum.genre
+            self.copyrightLabel.text = viewModel.displayedAlbum.copyright
+            self.countryLabel.text = viewModel.displayedAlbum.country
             self.albumCover.kf.indicatorType = .activity
             self.albumCover?.kf.setImage(with: viewModel.displayedAlbum.artworkUrl)
-            self.albumCover.self?.layer.cornerRadius = 8
+            self.albumCover.self?.layer.cornerRadius = 15
+            self.albumCover?.layer.shadowRadius = 5
+            self.albumCover?.layer.shadowOpacity = 0.2
+            self.albumCover?.layer.shadowOffset = CGSize(width: 4, height: 9)
+            self.albumCover?.clipsToBounds = true
             self.table?.reloadData()
         }
+        showUI()
+    }
+    
+    private func showUI() {
+        DispatchQueue.main.async {
+            self.table?.isHidden = false
+            self.loader?.stopAnimating()
+            self.loaderView?.isHidden = true
+            self.albumCover.isHidden = false
+            self.navBar.isHidden = false
+        }
+
+    }
+    @IBAction func closeAlbumDetailsButton(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true)
     }
     
 }
@@ -118,5 +147,8 @@ extension AlbumDetailsViewController: UITableViewDataSource {
 extension AlbumDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         "Tracks"
+    }
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = UIColor.systemGroupedBackground
     }
 }

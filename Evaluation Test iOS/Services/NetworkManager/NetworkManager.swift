@@ -13,7 +13,10 @@ final class NetworkManager {
     private let albumTracksURL = "https://itunes.apple.com/lookup?id="
     
     func fetchAlbumsData(for usersRequest: String, completion: @escaping (_ albums: Albums?) -> Void) {
-        let albumsReadyURL = albumsURL + "\(usersRequest)&entity=album"
+        guard let request = usersRequest.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            return
+        }
+        let albumsReadyURL = albumsURL + request + "&entity=album"
         
         guard let url = URL(string: albumsReadyURL) else { return }
         URLSession.shared.dataTask(with: url) { (data, _, _) in

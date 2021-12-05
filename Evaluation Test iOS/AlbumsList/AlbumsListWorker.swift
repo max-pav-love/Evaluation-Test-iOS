@@ -16,7 +16,7 @@ class AlbumsListWorker {
         var displayedAlbums = [AlbumsList
                                 .Albums
                                 .ViewModel
-                                .DisplayedAlbums]()
+                                .DisplayedAlbums]()        
         albums.forEach { album in
             let artistName = album.artistName
             let albumName = album.collectionName
@@ -35,7 +35,7 @@ class AlbumsListWorker {
                                  artworkUrl: artworkUrl,
                                  numberOfTracks: numberOfTracks,
                                  country: country,
-                                 copyright: copyright,
+                                 copyright: copyright ?? "",
                                  releaseDate: releaseDate,
                                  genre: genre)
             displayedAlbums.append(album)

@@ -32,14 +32,14 @@ class AlbumsListViewController: UIViewController, AlbumsListDisplayLogic {
     
     
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let scene = segue.identifier {
-//            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-//            if let router = router, router.responds(to: selector) {
-//                router.perform(selector, with: segue)
-//            }
-//        }
-//    }
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        if let scene = segue.identifier {
+    //            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+    //            if let router = router, router.responds(to: selector) {
+    //                router.perform(selector, with: segue)
+    //            }
+    //        }
+    //    }
     
     // MARK: - View lifecycle
     
@@ -47,6 +47,11 @@ class AlbumsListViewController: UIViewController, AlbumsListDisplayLogic {
         super.viewDidLoad()
         configurator.setupModule(self)
         setupFlow()
+        self.collection?.keyboardDismissMode = .onDrag
+        UINavigationBar.appearance().frame = CGRect(x: 0.0,
+                                                    y: 0.0,
+                                                    width: 414,
+                                                    height: 30)
     }
     
     // MARK: - Methods
@@ -60,6 +65,7 @@ class AlbumsListViewController: UIViewController, AlbumsListDisplayLogic {
         albums = viewModel.displayedAlbums
         DispatchQueue.main.async {
             self.collection?.reloadData()
+            self.searchBar?.text = viewModel.request
         }
     }
     
@@ -116,16 +122,13 @@ extension AlbumsListViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension AlbumsListViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText != "" {
-            timer?.invalidate()
-            timer = Timer.scheduledTimer(withTimeInterval: 0.5,
-                                         repeats: false,
-                                         block: { [weak self] _ in
-                self?.getAlbums(searchText)
-            })
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text else {
+            return
         }
+        self.getAlbums(searchText)
+        searchBar.endEditing(true)
     }
+    
 }
-
-

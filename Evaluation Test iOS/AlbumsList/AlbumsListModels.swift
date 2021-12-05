@@ -10,10 +10,11 @@ import UIKit
 enum AlbumsList {
     enum Albums {
         struct Request {
-            var album: String
+            let album: String
         }
         struct Response {
-            var albums: [AlbumResults]
+            let albums: [AlbumResults]
+            let request: String
         }
         struct ViewModel {
             struct DisplayedAlbums {
@@ -26,7 +27,8 @@ enum AlbumsList {
                 let releaseDate: String
                 let genre: String
             }
-            var displayedAlbums: [DisplayedAlbums]
+            let displayedAlbums: [DisplayedAlbums]
+            let request: String
         }
     }
 }

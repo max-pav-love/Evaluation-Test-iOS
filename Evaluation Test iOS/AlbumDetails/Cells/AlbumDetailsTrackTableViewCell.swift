@@ -13,9 +13,11 @@ class AlbumDetailsTrackTableViewCell: UITableViewCell {
     
     @IBOutlet weak var trackTitleLabel: UILabel!
     @IBOutlet weak var trackLenghtLabel: UILabel!
+    @IBOutlet weak var trackArtistLabel: UILabel!
     
     func configure(_ track: AlbumDetails.Album.ViewModel.DisplayedTrack) {
         trackTitleLabel.text = track.trackName
-//        trackLenghtLabel.text = track.trackArtist
+        trackLenghtLabel.text = track.trackLenght
+        trackArtistLabel.text = track.trackArtist
     }
 }

@@ -19,7 +19,6 @@ class AlbumsListRouter: NSObject, AlbumsListRoutingLogic, AlbumsListDataPassing 
     
     weak var viewController: AlbumsListViewController?
     var dataStore: AlbumsListDataStore?
-    //    private static let detailSegue = "showAlbumDetails"
     
     // MARK: - Routing Logic
     
@@ -31,14 +30,13 @@ class AlbumsListRouter: NSObject, AlbumsListRoutingLogic, AlbumsListDataPassing 
             let dataStore = dataStore else {
                 return
             }
+        
         passDataToAlbumDetails(source: dataStore, destination: &destinationDS)
         navigateToAlbumDetails(destination: destinationVC)
     }
     
     func navigateToAlbumDetails(destination: AlbumDetailsViewController) {
-//        viewController?.navigationController?.pushViewController(destination, animated: true)
         viewController?.present(destination, animated: true)
-//        viewController?.navigationController?.present(destination, animated: true)
     }
     
     // MARK: - Passing data

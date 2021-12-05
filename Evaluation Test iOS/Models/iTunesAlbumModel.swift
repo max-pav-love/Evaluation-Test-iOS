@@ -16,7 +16,7 @@ struct AlbumResults: Decodable {
     let collectionName: String
     let artworkUrl100: URL?
     let trackCount: Int
-    let copyright: String
+    let copyright: String?
     let country: String
     let releaseDate: String
     let primaryGenreName: String

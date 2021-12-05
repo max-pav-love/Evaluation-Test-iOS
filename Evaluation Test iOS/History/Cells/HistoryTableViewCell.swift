@@ -8,7 +8,11 @@
 import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
-
-    static let identifier = "historyCell"
     
+    @IBOutlet weak var searchRequestLabel: UILabel!
+    
+    static let identifier = "historyCell"
+    func configure(searchRequest: String) {
+        searchRequestLabel.text = searchRequest
+    }
 }

@@ -13,4 +13,6 @@ struct AlbumTracks: Codable {
 
 struct TracksResult: Codable {
     let trackName: String?
+    let artistName: String?
+    let trackTimeMillis: Int?
 }

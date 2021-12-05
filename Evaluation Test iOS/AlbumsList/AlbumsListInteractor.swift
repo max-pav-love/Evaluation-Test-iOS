@@ -20,18 +20,19 @@ class AlbumsListInteractor: AlbumsListBusinessLogic, AlbumsListDataStore {
     var albumsResults: [AlbumResults] = []
     
     var presenter: AlbumsListPresentationLogic?
-    var worker: AlbumsListWorker?
     private let networkManager = NetworkManager()
+    private let storageManager = StorageManager()
     
     // MARK: - Business Logic
     
     func fetchAlbums(request: AlbumsList.Albums.Request) {
+        storageManager.addRequest(request: request.album)
         networkManager.fetchAlbumsData(for: request.album) { [weak self] albums in
             guard let albums = albums else {
                 return
             }
-            self?.albumsResults = albums.results
-            let response = AlbumsList.Albums.Response(albums: self?.albumsResults ?? [])
+            self?.albumsResults = albums.results.sorted(by: { $0.collectionName < $1.collectionName })
+            let response = AlbumsList.Albums.Response(albums: self?.albumsResults ?? [], request: request.album)
             self?.presenter?.presentAlbums(response: response)
         }
     }

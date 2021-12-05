@@ -12,8 +12,10 @@ enum History {
         struct Request {
         }
         struct Response {
+            let requests: [String]
         }
         struct ViewModel {
+            let requests: [String]
         }
     }
 }

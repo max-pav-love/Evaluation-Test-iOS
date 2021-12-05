@@ -8,13 +8,15 @@
 import UIKit
 
 protocol HistoryDisplayLogic: AnyObject {
-    func displaySomething(viewModel: History.Something.ViewModel)
+    func displayHistory(viewModel: History.Something.ViewModel)
 }
 
 class HistoryViewController: UITableViewController, HistoryDisplayLogic {
     
     var interactor: HistoryBusinessLogic?
     var router: (NSObjectProtocol & HistoryRoutingLogic & HistoryDataPassing)?
+    
+    var userRequests = [String]()
     
     // MARK: - Object lifecycle
     
@@ -27,6 +29,7 @@ class HistoryViewController: UITableViewController, HistoryDisplayLogic {
         super.init(coder: aDecoder)
         setup()
     }
+
     
     // MARK: - Setup
     
@@ -43,33 +46,23 @@ class HistoryViewController: UITableViewController, HistoryDisplayLogic {
         router.dataStore = interactor
     }
     
-    // MARK: - Routing
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
-    }
-    
     // MARK: - View lifecycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        doSomething()
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        requestHistory()
     }
     
     // MARK: - Methods
     
-    func doSomething() {
+    func requestHistory() {
         let request = History.Something.Request()
-        interactor?.doSomething(request: request)
+        interactor?.requestSearchHistory(request: request)
     }
     
-    func displaySomething(viewModel: History.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func displayHistory(viewModel: History.Something.ViewModel) {
+        self.userRequests = viewModel.requests
+        tableView.reloadData()
     }
     
 }
@@ -80,13 +73,20 @@ extension HistoryViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        userRequests.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.identifier, for: indexPath) as? HistoryTableViewCell else {
             return UITableViewCell()
         }
+        cell.configure(searchRequest: userRequests[indexPath.row])
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        router?.routeToSearch()
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
 }

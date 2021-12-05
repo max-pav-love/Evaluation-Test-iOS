@@ -28,6 +28,8 @@ enum AlbumDetails {
             }
             struct DisplayedTrack {
                 let trackName: String
+                let trackArtist: String
+                let trackLenght: String
             }
             var displayedAlbum: DisplayedAlbum
             var dispalayedTracks: [DisplayedTrack]

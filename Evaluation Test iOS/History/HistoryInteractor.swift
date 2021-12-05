@@ -8,28 +8,30 @@
 import UIKit
 
 protocol HistoryBusinessLogic {
-    func doSomething(request: History.Something.Request)
+    func requestSearchHistory(request: History.Something.Request)
 }
 
 protocol HistoryDataStore {
-    
+    var requests: [String] { get }
 }
 
 class HistoryInteractor: HistoryBusinessLogic, HistoryDataStore {
     
     var presenter: HistoryPresentationLogic?
-    var worker: HistoryWorker?
+    private var worker: HistoryWorker?
     
     // MARK: - DataStore
     
+    var requests = [String]()
+    
     // MARK: - Business Logic
     
-    func doSomething(request: History.Something.Request) {
+    func requestSearchHistory(request: History.Something.Request) {
         worker = HistoryWorker()
-        worker?.doSomeWork()
+        requests = worker?.fetchSearchHistory() ?? []
         
-        let response = History.Something.Response()
-        presenter?.presentSomething(response: response)
+        let response = History.Something.Response(requests: requests)
+        presenter?.presentSearchHistory(response: response)
     }
     
 }

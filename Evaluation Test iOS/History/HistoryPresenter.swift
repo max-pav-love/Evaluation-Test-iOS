@@ -8,7 +8,7 @@
 import UIKit
 
 protocol HistoryPresentationLogic {
-    func presentSomething(response: History.Something.Response)
+    func presentSearchHistory(response: History.Something.Response)
 }
 
 class HistoryPresenter: HistoryPresentationLogic {
@@ -17,9 +17,9 @@ class HistoryPresenter: HistoryPresentationLogic {
     
     // MARK: - PresentationLogic
     
-    func presentSomething(response: History.Something.Response) {
-        let viewModel = History.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentSearchHistory(response: History.Something.Response) {
+        let viewModel = History.Something.ViewModel(requests: response.requests.reversed())
+        viewController?.displayHistory(viewModel: viewModel)
     }
     
 }

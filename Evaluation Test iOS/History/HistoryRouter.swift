@@ -8,7 +8,7 @@
 import UIKit
 
 @objc protocol HistoryRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToSearch()
 }
 
 protocol HistoryDataPassing {
@@ -22,30 +22,43 @@ class HistoryRouter: NSObject, HistoryRoutingLogic, HistoryDataPassing {
     
     // MARK: - Routing Logic
     
-//    func routeToSomewhere(segue: UIStoryboardSegue?) {
-//        if let segue = segue {
-//            let destinationVC = segue.destination as! SomewhereViewController
-//            var destinationDS = destinationVC.router!.dataStore!
-//            passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-//        } else {
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-//            var destinationDS = destinationVC.router!.dataStore!
-//            passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-//            navigateToSomewhere(source: viewController!, destination: destinationVC)
-//        }
-//    }
+    func routeToSearch() {
+        let viewControllers = viewController?.tabBarController?.viewControllers
+        guard
+            let searchVCIndex = viewControllers?.firstIndex(where: { $0.restorationIdentifier == "albumsList" }),
+            let navigationController = viewControllers?[searchVCIndex] as? UINavigationController,
+            let searchVC = navigationController.viewControllers.first as? AlbumsListViewController,
+            var destinationDS = searchVC.router?.dataStore,
+            let dataStore = dataStore,
+            let source = viewController
+        else {
+            return
+        }
+        
+        passDataToSearch(source: dataStore, destination: &destinationDS)
+        navigateToSearch(source: source, destinationIndex: searchVCIndex)
+        
+    }
     
     // MARK: - Navigation
     
-//    func navigateToSomewhere(source: HistoryViewController, destination: SomewhereViewController) {
-//        source.show(destination, sender: nil)
-//    }
+    func navigateToSearch(source: HistoryViewController, destinationIndex: Int) {
+        source.tabBarController?.selectedIndex = destinationIndex
+    }
     
-    // MARK: - Passing data
+    // MARK: - Passing Data
     
-//    func passDataToSomewhere(source: HistoryDataStore, destination: inout SomewhereDataStore) {
-//        destination.name = source.name
-//    }
+    func passDataToSearch(source: HistoryDataStore, destination: inout AlbumsListDataStore) {
+        guard
+            let selectedIndex = viewController?.tableView.indexPathForSelectedRow?.row,
+            dataStore?.requests.indices.contains(selectedIndex) == true,
+            let selectedRequest = dataStore?.requests[selectedIndex],
+            let destinationInteractor = destination as? AlbumsListBusinessLogic
+        else {
+            return
+        }
+        let request = AlbumsList.Albums.Request(album: selectedRequest)
+        destinationInteractor.fetchAlbums(request: request)
+    }
     
 }

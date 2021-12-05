@@ -23,7 +23,7 @@ class AlbumsListPresenter: AlbumsListPresentationLogic {
         guard let displayedAlbums = worker?.prepareDisplayedAlbums(from: response.albums) else {
             return
         }
-        let viewModel = AlbumsList.Albums.ViewModel(displayedAlbums: displayedAlbums)
+        let viewModel = AlbumsList.Albums.ViewModel(displayedAlbums: displayedAlbums, request: response.request)
         viewController?.displayAlbums(viewModel: viewModel)
     }
     

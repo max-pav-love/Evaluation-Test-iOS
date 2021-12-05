@@ -14,31 +14,15 @@ protocol AlbumDetailsPresentationLogic {
 class AlbumDetailsPresenter: AlbumDetailsPresentationLogic {
     
     weak var viewController: AlbumDetailsDisplayLogic?
+    private var worker: AlbumDetailsWorker?
     
     // MARK: - PresentationLogic
     
     func presentAlbumDetails(response: AlbumDetails.Album.Response) {
-
-        var songsArray = [AlbumDetails.Album.ViewModel.DisplayedTrack]()
-        response.tracks.forEach { song in
-            guard let song = song.trackName else { return }
-            let songName = song
-            let displayedTrack = AlbumDetails.Album.ViewModel.DisplayedTrack(trackName: songName)
-            songsArray.append(displayedTrack)
-        }
-        
-        let displayedAlbumDetails = AlbumDetails
-            .Album
-            .ViewModel
-            .DisplayedAlbum(artistName: response.album.artistName,
-                            albumName: response.album.collectionName,
-                            artworkUrl: response.album.artworkUrl100,
-                            numberOfTracks: response.album.trackCount,
-                            country: response.album.country,
-                            copyright: response.album.copyright,
-                            releaseDate: response.album.releaseDate,
-                            genre: response.album.primaryGenreName)
-        let viewModel = AlbumDetails.Album.ViewModel(displayedAlbum: displayedAlbumDetails, dispalayedTracks: songsArray)
+        worker = AlbumDetailsWorker()
+        guard let tracks = worker?.prepareDisplayedTracks(response) else { return }
+        guard let info = worker?.prepareDisplayedAlbumInfo(response) else { return }
+        let viewModel = AlbumDetails.Album.ViewModel(displayedAlbum: info, dispalayedTracks: tracks)
         viewController?.displayAlbumDetails(viewModel: viewModel)
     }
     

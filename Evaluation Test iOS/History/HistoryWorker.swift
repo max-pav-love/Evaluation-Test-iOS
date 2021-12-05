@@ -9,8 +9,10 @@ import UIKit
 
 class HistoryWorker {
     
-    func doSomeWork() {
-        
+    private let storageManager = StorageManager()
+    
+    func fetchSearchHistory() -> [String] {
+        storageManager.loadRequests()
     }
     
 }
