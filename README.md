@@ -9,6 +9,8 @@
 ## Screenshots
 - iTunes Albums demo:
 
+<img src="https://github.com/max-pav-love/Evaluation-Test-iOS/blob/main/Screenshots/Search.png" width="214" height="463"> <img src="https://github.com/max-pav-love/Evaluation-Test-iOS/blob/main/Screenshots/Detail.png" width="214" height="463"> <img src="https://github.com/max-pav-love/Evaluation-Test-iOS/blob/main/Screenshots/History.png" width="214" height="463">
+
 ## Technologies Used
 - Kingfisher
 - Clean swift architecture
