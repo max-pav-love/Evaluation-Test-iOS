@@ -62,17 +62,6 @@ class AlbumDetailsViewController: UIViewController, AlbumDetailsDisplayLogic {
         router.dataStore = interactor
     }
     
-    // MARK: - Routing
-    //
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        if let scene = segue.identifier {
-    //            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-    //            if let router = router, router.responds(to: selector) {
-    //                router.perform(selector, with: segue)
-    //            }
-    //        }
-    //    }
-    //
     // MARK: - View lifecycle
     
     override func viewDidLoad() {
@@ -89,6 +78,27 @@ class AlbumDetailsViewController: UIViewController, AlbumDetailsDisplayLogic {
     
     func displayAlbumDetails(viewModel: AlbumDetails.Album.ViewModel) {
         tracks = viewModel.dispalayedTracks
+        setupUI(viewModel: viewModel)
+        showUI()
+    }
+    
+    @IBAction func closeAlbumDetailsButton(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true)
+    }
+    
+// MARK: - Private
+
+    private func showUI() {
+        DispatchQueue.main.async {
+            self.table?.isHidden = false
+            self.loader?.stopAnimating()
+            self.loaderView?.isHidden = true
+            self.albumCover.isHidden = false
+            self.navBar.isHidden = false
+        }
+    }
+    
+    private func setupUI(viewModel: AlbumDetails.Album.ViewModel) {
         DispatchQueue.main.async {
             self.navBarTitle.title = viewModel.displayedAlbum.albumName
             self.artistNameLabel.text = viewModel.displayedAlbum.artistName
@@ -105,27 +115,13 @@ class AlbumDetailsViewController: UIViewController, AlbumDetailsDisplayLogic {
             self.albumCover?.clipsToBounds = true
             self.table?.reloadData()
         }
-        showUI()
-    }
-    
-    private func showUI() {
-        DispatchQueue.main.async {
-            self.table?.isHidden = false
-            self.loader?.stopAnimating()
-            self.loaderView?.isHidden = true
-            self.albumCover.isHidden = false
-            self.navBar.isHidden = false
-        }
-
-    }
-    @IBAction func closeAlbumDetailsButton(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true)
     }
     
 }
 
+// MARK: - UITableViewDataSource
+
 extension AlbumDetailsViewController: UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         1
     }
@@ -141,13 +137,15 @@ extension AlbumDetailsViewController: UITableViewDataSource {
         cell.configure(tracks[indexPath.row])
         return cell
     }
-    
 }
+
+// MARK: - UITableViewDelegate
 
 extension AlbumDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         "Tracks"
     }
+    
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         view.tintColor = UIColor.systemGroupedBackground
     }

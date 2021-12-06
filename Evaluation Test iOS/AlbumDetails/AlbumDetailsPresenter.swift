@@ -20,8 +20,12 @@ class AlbumDetailsPresenter: AlbumDetailsPresentationLogic {
     
     func presentAlbumDetails(response: AlbumDetails.Album.Response) {
         worker = AlbumDetailsWorker()
-        guard let tracks = worker?.prepareDisplayedTracks(response) else { return }
-        guard let info = worker?.prepareDisplayedAlbumInfo(response) else { return }
+        guard
+            let tracks = worker?.prepareDisplayedTracks(response),
+            let info = worker?.prepareDisplayedAlbumInfo(response)
+        else {
+            return
+        }
         let viewModel = AlbumDetails.Album.ViewModel(displayedAlbum: info, dispalayedTracks: tracks)
         viewController?.displayAlbumDetails(viewModel: viewModel)
     }

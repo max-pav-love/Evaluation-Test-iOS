@@ -28,19 +28,6 @@ class AlbumsListViewController: UIViewController, AlbumsListDisplayLogic {
     @IBOutlet private weak var searchBar: UISearchBar?
     @IBOutlet weak var collection: UICollectionView?
     
-    // MARK: - Routing
-    
-    
-    
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        if let scene = segue.identifier {
-    //            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-    //            if let router = router, router.responds(to: selector) {
-    //                router.perform(selector, with: segue)
-    //            }
-    //        }
-    //    }
-    
     // MARK: - View lifecycle
     
     override func viewDidLoad() {
@@ -52,6 +39,11 @@ class AlbumsListViewController: UIViewController, AlbumsListDisplayLogic {
                                                     y: 0.0,
                                                     width: 414,
                                                     height: 30)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupCollection()
     }
     
     // MARK: - Methods
@@ -69,7 +61,19 @@ class AlbumsListViewController: UIViewController, AlbumsListDisplayLogic {
         }
     }
     
+    // MARK: - Private
+    
+    private func setupCollection() {
+        self.collection?.layer.cornerRadius = 1
+        self.collection?.layer.shadowRadius = 5
+        collection?.layer.shadowOpacity = 0.2
+        collection?.layer.shadowOffset = CGSize(width: 3, height: 5)
+        self.collection?.clipsToBounds = true
+    }
+    
 }
+
+// MARK: - UICollectionViewDataSource
 
 extension AlbumsListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -94,22 +98,25 @@ extension AlbumsListViewController: UICollectionViewDataSource {
         1
     }
     
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension AlbumsListViewController: UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: Constants.CollectionViewArrangement.galleryItemWidth, height: Constants.CollectionViewArrangement.collectionItemHeight)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        self.collection?.layer.cornerRadius = 1
-        self.collection?.layer.shadowRadius = 5
-        collection?.layer.shadowOpacity = 0.2
-        collection?.layer.shadowOffset = CGSize(width: 3, height: 5)
-        self.collection?.clipsToBounds = true
+        CGSize(width: Constants
+                .CollectionViewArrangement
+                .galleryItemWidth,
+               height: Constants
+                .CollectionViewArrangement
+                .collectionItemHeight)
     }
 }
+
+// MARK: - UICollectionViewDelegateFlowLayout
 
 extension AlbumsListViewController: UICollectionViewDelegateFlowLayout {
     func setupFlow() {
@@ -121,14 +128,12 @@ extension AlbumsListViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: - UISearchBarDelegate
+
 extension AlbumsListViewController: UISearchBarDelegate {
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchText = searchBar.text else {
-            return
-        }
+        guard let searchText = searchBar.text else { return }
         self.getAlbums(searchText)
         searchBar.endEditing(true)
     }
-    
 }

@@ -66,8 +66,7 @@
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P6r-Cu-19y">
                                 <rect key="frame" x="87" y="160" width="240" height="240"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="efM-e9-GXd"/>
-                                    <constraint firstAttribute="height" constant="240" id="zaR-Zg-10y"/>
+                                    <constraint firstAttribute="width" secondItem="P6r-Cu-19y" secondAttribute="height" multiplier="1:1" id="bTJ-Wx-Jnh"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TPw-8E-Yfa">

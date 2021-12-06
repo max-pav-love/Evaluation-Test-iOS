@@ -55,7 +55,7 @@ class HistoryViewController: UITableViewController, HistoryDisplayLogic {
     
     // MARK: - Methods
     
-    func requestHistory() {
+    private func requestHistory() {
         let request = History.Something.Request()
         interactor?.requestSearchHistory(request: request)
     }
@@ -63,13 +63,6 @@ class HistoryViewController: UITableViewController, HistoryDisplayLogic {
     func displayHistory(viewModel: History.Something.ViewModel) {
         self.userRequests = viewModel.requests
         tableView.reloadData()
-    }
-    
-}
-
-extension HistoryViewController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
