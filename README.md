@@ -1,5 +1,5 @@
-# Evaluation-Test-iOS (iTunes Albums)
-> My test task in "Fora-Soft"
+# iTunes Albums)
+> Helps you to find albums in iTunes
 
 ## Features
 - Search albums
