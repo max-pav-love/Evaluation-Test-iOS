@@ -1,4 +1,4 @@
-# iTunes Albums)
+# iTunes Albums
 > Helps you to find albums in iTunes
 
 ## Features
